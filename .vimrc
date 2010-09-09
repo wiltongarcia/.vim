@@ -87,12 +87,12 @@ imap <C-s> <Esc>:w<cr>a
 imap <C-w> <Esc>:q<cr>a
 " Control + z to undo"
 imap <C-z> <Esc>:u<cr>a
-" Shift + d to delete the current line
+" Shift + Del to delete the current line
 imap <S-Del> <Esc>:d<cr>a
 " Show the NERDTree window on the /var/www dir
 map <C-p> <Esc>:NERDTree /var/www/<cr>
 " Show the taglist window
-map <C-t> <Esc>:TlistToggle<cr>
+"map <C-t> <Esc>:TlistToggle<cr>
 " Toggle autoclose
 map <C-a> <Esc>:AutoCloseToggle<cr>
 " Activate the Zencoding

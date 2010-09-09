@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/var/www/project/admin/application/configs'
 let g:netrw_dirhist_2='/var/www/project/emex/corpoemequilibrio_homologacao/modulos/diario_alimentar/view'
 let g:netrw_dirhist_3='/var/www/project/emex/corpoemequilibrio_homologacao/modulos/diario_alimentar'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/var/www/project/emex/corpoemequilibrio_homologacao/modul
 let g:netrw_dirhist_5='/home/nexus'
 let g:netrw_dirhist_6='/home'
 let g:netrw_dirhist_7='/var/www/project/zend_atendimento/tests/application/controllers'
+let g:netrw_dirhist_8='/etc/apache2/sites-available'

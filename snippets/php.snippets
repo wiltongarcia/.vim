@@ -21,7 +21,7 @@ snippet $_ ENV['...']
 	$_ENV['${1:variable}']${2}
 snippet $_ FILES['...']
 	$_FILES['${1:variable}']${2}
-snippet $_ Get['...']
+snippet $_ GET['...']
 	$_GET['${1:variable}']${2}
 snippet $_ POST['...']
 	$_POST['${1:variable}']${2}
@@ -164,7 +164,7 @@ snippet do
 	} while (${1:/* condition */});
 snippet if
 	if (${1:/* condition */}) {
-		${2:// code...}
+	    ${2:// code...}
 	}
 snippet ife
 	if (${1:/* condition */}) {
@@ -186,31 +186,65 @@ snippet t
 	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
 snippet switch
 	switch ($${1:variable}) {
-		case '${2:value}':
-			${3:// code...}
-			break;
-		${5}
+	    case '${2:value}':
+	        ${3:// code...}
+	    break;
+	    ${5}
 		default:
-			${4:// code...}
-			break;
+	        ${4:// code...}
+	    break;
 	}
 snippet case
 	case '${1:value}':
-		${2:// code...}
-		break;${3}
+	    ${2:// code...}
+	break;${3}
 snippet for
 	for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
-		${4: // code...}
+	    ${4: // code...}
 	}
 snippet foreach
 	foreach ($${1:variable} as $${2:key}) {
-		${3:// code...}
+	    ${3:// code...}
 	}
 snippet fun
 	${1:public }function ${2:FunctionName}(${3})
 	{
-		${4:// code...}
+	    ${4:// code...}
 	}
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+
+#
+# Zend Framework specific snippets
+#
+
+snippet zfdump
+	Zend_Debug::dump(${1})${2}
+
+snippet zfdate
+	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3}
+
+snippet zfmsg
+	$this->_helper->FlashMessenger->addMessage(${1:message})${2}
+
+snippet zfnorender
+	$this->_helper->viewRenderer->setNoRender()${1}
+
+snippet zfgregistry
+	Zend_Registry::get('${1:value}')${2}
+
+snippet zfgrequest
+	$${1:request} = $this->getRequest()${2:;}
+
+snippet zfsession
+	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3}
+
+snippet zfgparam
+	$${1:param} = $this->_getParam('${2:paramName}')${3}
+
+snippet zfnmodel
+	$${1:modelName} = new Application_Model_${2:model}$${3:;}
+
+snippet zfredirector
+	$this->_helper->redirector('${1:action}','${2:model}')${3:;}
