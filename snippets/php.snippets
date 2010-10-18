@@ -9,7 +9,7 @@ snippet inc
 snippet inc1
 	include_once '${1:file}';${2}
 snippet req
-	require '${1:file}';${2}
+	require ('${1:file}');${2}
 snippet req1
 	require_once '${1:file}';${2}
 # $GLOBALS['...']
@@ -68,7 +68,8 @@ snippet doc_c
 	 * @author ${5:`g:snips_author`}
 	 **/
 	${1:}class ${2:}
-	{${6}
+	{
+        ${6}
 	} // END $1class $2
 # Constant Definition - post doc
 snippet doc_dp
@@ -107,7 +108,8 @@ snippet doc_f
 	 * @author ${6:`g:snips_author`}
 	 **/
 	${1}function ${2}(${3})
-	{${7}
+	{
+        ${7}
 	}
 # Header
 snippet doc_h
@@ -132,7 +134,8 @@ snippet doc_i
 	 * @author ${4:`g:snips_author`}
 	 **/
 	interface ${1:}
-	{${5}
+	{
+        ${5}
 	} // END interface $1
 # class ...
 snippet class
@@ -215,36 +218,47 @@ snippet fun
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
 
+snippet dump
+	echo '<pre>' . nl2br(print_r(${1:value},true)) . '</pre>';
+
 #
 # Zend Framework specific snippets
 #
 
 snippet zfdump
-	Zend_Debug::dump(${1})${2}
+	Zend_Debug::dump(${1})${2:;}
+
+snippet zfn
+	$${1:library} = new Zend_${2:library};
 
 snippet zfdate
-	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3}
+	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3:;}
 
 snippet zfmsg
-	$this->_helper->FlashMessenger->addMessage(${1:message})${2}
+	$this->_helper
+		 ->FlashMessenger
+		 ->addMessage(${1:message})${2:;}
 
 snippet zfnorender
-	$this->_helper->viewRenderer->setNoRender()${1}
+	$this->_helper->viewRenderer->setNoRender()${1:;}
 
 snippet zfgregistry
-	Zend_Registry::get('${1:value}')${2}
+	Zend_Registry::get('${1:value}')${2:;}
 
 snippet zfgrequest
 	$${1:request} = $this->getRequest()${2:;}
 
 snippet zfsession
-	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3}
+	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3:;}
 
 snippet zfgparam
 	$${1:param} = $this->_getParam('${2:paramName}')${3}
 
 snippet zfnmodel
-	$${1:modelName} = new Application_Model_${2:model}$${3:;}
+	$${1:modelName} = new Application_Model_${2:model}${3:;}
 
 snippet zfredirector
 	$this->_helper->redirector('${1:action}','${2:model}')${3:;}
+
+snippet	zfrender
+	$this->render('${1:view}')${2:;}
