@@ -60,9 +60,9 @@ set noswapfile
 " highlight the syntax
 syntax on
 "set color scheme
-colorscheme molokai
+colorscheme rdark
 " set the default gui font to Monaco
-set guifont=Monaco
+set guifont=Inconsolata\ 12
 " disable the toolbar
 set guioptions-=T
 " disable the menu
@@ -125,14 +125,13 @@ set wildmode=list:full          " show a list when pressing tab and complete
 "-----------------------------------------------------------------------------
 if has("gui_running")
     if !exists("g:vimrcloaded")
-        winpos 0 0
+        winpos 30 0
         if ! &diff
-            winsize 130 60
+            winsize 160 55
         else
-            winsize 227 90
+            winsize 200 60
         endif
         let g:vimrcloaded = 1
     endif
 endif
 :nohls
-

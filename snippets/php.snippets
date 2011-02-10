@@ -2,6 +2,10 @@ snippet php
 	<?php
 	${1}
 	?>
+snippet var
+	$${1:var} = ${2:value};
+snippet ph
+	<?php ${1}; ?>
 snippet ec
 	echo "${1:string}"${2};
 snippet inc
@@ -69,7 +73,7 @@ snippet doc_c
 	 **/
 	${1:}class ${2:}
 	{
-        ${6}
+		${6}
 	} // END $1class $2
 # Constant Definition - post doc
 snippet doc_dp
@@ -109,7 +113,7 @@ snippet doc_f
 	 **/
 	${1}function ${2}(${3})
 	{
-        ${7}
+		${7}
 	}
 # Header
 snippet doc_h
@@ -135,7 +139,7 @@ snippet doc_i
 	 **/
 	interface ${1:}
 	{
-        ${5}
+		${5}
 	} // END interface $1
 # class ...
 snippet class
@@ -217,7 +221,6 @@ snippet fun
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
-
 snippet dump
 	echo '<pre>' . nl2br(print_r(${1:value},true)) . '</pre>';
 
@@ -227,38 +230,79 @@ snippet dump
 
 snippet zfdump
 	Zend_Debug::dump(${1})${2:;}
-
 snippet zfn
 	$${1:library} = new Zend_${2:library};
-
+snippet zfvt
+	$this->translate('${1}')${2}
 snippet zfdate
 	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3:;}
-
 snippet zfmsg
 	$this->_helper
 		 ->FlashMessenger
 		 ->addMessage(${1:message})${2:;}
-
 snippet zfnorender
 	$this->_helper->viewRenderer->setNoRender()${1:;}
-
 snippet zfgregistry
 	Zend_Registry::get('${1:value}')${2:;}
-
 snippet zfgrequest
 	$${1:request} = $this->getRequest()${2:;}
-
 snippet zfsession
 	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3:;}
-
 snippet zfgparam
 	$${1:param} = $this->_getParam('${2:paramName}')${3}
-
 snippet zfnmodel
 	$${1:modelName} = new Application_Model_${2:model}${3:;}
-
 snippet zfredirector
 	$this->_helper->redirector('${1:action}','${2:model}')${3:;}
-
 snippet	zfrender
 	$this->render('${1:view}')${2:;}
+snippet zfcrender
+	$this->render('${1}',null,true)${2:;}
+snippet zfvt
+	$this->translate('${1}')${2}
+snippet zfurl
+	$this->url(array(${1:'action'},${2:'controller'}),'${3:default}',${4:true})
+snippet zfaction 
+	/**
+	 * ${2:Description}
+	 *
+	 * @return void
+	 * @author Rafael Nexus
+	 **/
+	public function ${1:name}Action()
+	{
+		${3://code}	
+	}
+snippet zfcontroller
+	/**
+	 * ${2:Description}
+	 *
+	 * @category ${3:category}
+	 * @package ${4:package}
+	 * @copyright Copyright (c) 2010 Rafael Nexus
+	 */
+
+	/**
+	 * $1 - $2
+	 *
+	 * @packaged $3
+	 * @author Rafael Nexus
+	 **/
+	class ${1:name}Controller extends Zend_Controller_Action
+	{
+		public function init()
+		{
+			${5://code} 
+		}
+	}
+snippet zfnt
+	<tu tuid="${1:label}">
+	<tuv xml:lang="en_US">
+	<seg>${2:translation}</seg>
+	</tuv>
+	</tu>
+	<tu tuid="$1">
+	<tuv xml:lang="pt_BR">
+	<seg>${3:translation}</seg>
+	</tuv>
+	</tu>       
