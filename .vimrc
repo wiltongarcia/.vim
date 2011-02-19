@@ -104,8 +104,6 @@ endif
 map Q gq
 " Show the NERDTree window on the /var/www dir
 map <C-p> <Esc>:NERDTree /var/www/<cr>
-" Show the taglist window
-map <C-t> <Esc>:TlistToggle<cr>
 " Activate the Zencoding
 imap <C-c> <Esc><C-y>,a
 " Avoid accidental hits of <F1> while aiming for <Esc>
