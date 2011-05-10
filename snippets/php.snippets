@@ -1,3 +1,5 @@
+snippet p
+	<?php ${1} ?>
 snippet php
 	<?php
 	${1}
@@ -259,7 +261,8 @@ snippet zfcrender
 snippet zfvt
 	$this->translate('${1}')${2}
 snippet zfurl
-	$this->url(array(${1:'action'},${2:'controller'}),'${3:default}',${4:true})
+	$this->url(array('action'=>'${1:action}','controller'=>'${2:'controller'}'),
+				'${3:default}',${4:true})
 snippet zfaction 
 	/**
 	 * ${2:Description}
@@ -304,5 +307,3 @@ snippet zfnt
 	<seg>${3:translation}</seg>
 	</tuv>
 	</tu>       
-snippet ipsum
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales, libero sit amet congue euismod, odio nisl malesuada sem. 

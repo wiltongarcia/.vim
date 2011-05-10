@@ -6,10 +6,6 @@ if v:progname =~? "evim"
   finish
 endif
 
-" plugin management helper, just drop the plugin inside ~/.vim/bundle
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
 " hides the buffer instead of closing the files
 set hidden
 " dont wrap lines
@@ -57,6 +53,9 @@ set virtualedit=all
 set nobackup
 set noswapfile
 
+" Set the identation on
+filetype indent on
+
 " highlight the syntax
 syntax on
 "set color scheme
@@ -88,6 +87,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
+" Set multiple filetypes to the php files
+autocmd Filetype php set ft=php.html
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 " set "make" command when editing php files
 set makeprg=php\ -l\ %
@@ -105,11 +107,16 @@ map Q gq
 " Show the NERDTree window on the /var/www dir
 map <C-p> <Esc>:NERDTree /var/www/<cr>
 " Activate the Zencoding
-imap <C-c> <Esc><C-y>,a
+imap <C-z> <Esc><C-y>,a
+" Activate Nerd Commenter
+map <C-c> <Esc><leader>ci
 " Avoid accidental hits of <F1> while aiming for <Esc>
 map! <F1> <Esc>
 
 au! BufRead,BufNewFile *.json setfiletype json
+" Highlight long lines (soft limit: 80, hard limit: 100)
+au BufWinEnter *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
+au BufWinEnter *.php,*.py let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 
 set termencoding=utf-8
 set encoding=utf-8
@@ -118,18 +125,8 @@ set laststatus=2                " tell VIM to always put a status line in, even
                                 "    if there is only one window
 set wildmenu                    " make tab completion for files/buffers act like bash
 set wildmode=list:full          " show a list when pressing tab and complete
-"-----------------------------------------------------------------------------
-" Set up the window colors and size
-"-----------------------------------------------------------------------------
-if has("gui_running")
-    if !exists("g:vimrcloaded")
-        winpos 30 0
-        if ! &diff
-            winsize 160 55
-        else
-            winsize 200 60
-        endif
-        let g:vimrcloaded = 1
-    endif
-endif
-:nohls
+
+" Enable filetype plugins
+filetype plugin on
+
+:nohl
