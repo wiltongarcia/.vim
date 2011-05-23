@@ -112,6 +112,8 @@ imap <C-z> <Esc><C-y>,a
 map <C-c> <Esc><leader>ci
 " Avoid accidental hits of <F1> while aiming for <Esc>
 map! <F1> <Esc>
+" Map taglist plugin shortcut
+map <C-f> <Esc>:TlistToggle<cr>
 
 au! BufRead,BufNewFile *.json setfiletype json
 " Highlight long lines (soft limit: 80, hard limit: 100)
