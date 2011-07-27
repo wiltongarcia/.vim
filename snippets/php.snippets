@@ -1,7 +1,13 @@
+snippet p
+	<?php ${1} ?>
 snippet php
 	<?php
 	${1}
 	?>
+snippet var
+	$${1:var} = ${2:value};
+snippet ph
+	<?php ${1}; ?>
 snippet ec
 	echo "${1:string}"${2};
 snippet inc
@@ -9,7 +15,7 @@ snippet inc
 snippet inc1
 	include_once '${1:file}';${2}
 snippet req
-	require '${1:file}';${2}
+	require ('${1:file}');${2}
 snippet req1
 	require_once '${1:file}';${2}
 # $GLOBALS['...']
@@ -21,7 +27,7 @@ snippet $_ ENV['...']
 	$_ENV['${1:variable}']${2}
 snippet $_ FILES['...']
 	$_FILES['${1:variable}']${2}
-snippet $_ Get['...']
+snippet $_ GET['...']
 	$_GET['${1:variable}']${2}
 snippet $_ POST['...']
 	$_POST['${1:variable}']${2}
@@ -68,7 +74,8 @@ snippet doc_c
 	 * @author ${5:`g:snips_author`}
 	 **/
 	${1:}class ${2:}
-	{${6}
+	{
+		${6}
 	} // END $1class $2
 # Constant Definition - post doc
 snippet doc_dp
@@ -107,7 +114,8 @@ snippet doc_f
 	 * @author ${6:`g:snips_author`}
 	 **/
 	${1}function ${2}(${3})
-	{${7}
+	{
+		${7}
 	}
 # Header
 snippet doc_h
@@ -132,7 +140,8 @@ snippet doc_i
 	 * @author ${4:`g:snips_author`}
 	 **/
 	interface ${1:}
-	{${5}
+	{
+		${5}
 	} // END interface $1
 # class ...
 snippet class
@@ -164,7 +173,7 @@ snippet do
 	} while (${1:/* condition */});
 snippet if
 	if (${1:/* condition */}) {
-		${2:// code...}
+	    ${2:// code...}
 	}
 snippet ife
 	if (${1:/* condition */}) {
@@ -186,31 +195,115 @@ snippet t
 	$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
 snippet switch
 	switch ($${1:variable}) {
-		case '${2:value}':
-			${3:// code...}
-			break;
-		${5}
+	    case '${2:value}':
+	        ${3:// code...}
+	    break;
+	    ${5}
 		default:
-			${4:// code...}
-			break;
+	        ${4:// code...}
+	    break;
 	}
 snippet case
 	case '${1:value}':
-		${2:// code...}
-		break;${3}
+	    ${2:// code...}
+	break;${3}
 snippet for
 	for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
-		${4: // code...}
+	    ${4: // code...}
 	}
 snippet foreach
 	foreach ($${1:variable} as $${2:key}) {
-		${3:// code...}
+	    ${3:// code...}
 	}
 snippet fun
 	${1:public }function ${2:FunctionName}(${3})
 	{
-		${4:// code...}
+	    ${4:// code...}
 	}
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+snippet dump
+	echo '<pre>' . nl2br(print_r(${1:value},true)) . '</pre>';
+
+#
+# Zend Framework specific snippets
+#
+
+snippet zfdump
+	Zend_Debug::dump(${1})${2:;}
+snippet zfn
+	$${1:library} = new Zend_${2:library};
+snippet zfdate
+	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3:;}
+snippet zfmsg
+	$this->_helper
+		 ->FlashMessenger
+		 ->addMessage(${1:message})${2:;}
+snippet zfnorender
+	$this->_helper->viewRenderer->setNoRender()${1:;}
+snippet zfgregistry
+	Zend_Registry::get('${1:value}')${2:;}
+snippet zfgrequest
+	$${1:request} = $this->getRequest()${2:;}
+snippet zfsession
+	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3:;}
+snippet zfgparam
+	$${1:param} = $this->_getParam('${2:paramName}')${3}
+snippet zfnmodel
+	$${1:modelName} = new Application_Model_${2:model}${3:;}
+snippet zfredirector
+	$this->_helper->redirector('${1:action}','${2:model}')${3:;}
+snippet	zfrender
+	$this->render('${1:view}')${2:;}
+snippet zfcrender
+	$this->render('${1}',null,true)${2:;}
+snippet zfvt
+	$this->translate('${1}')${2}
+snippet zfurl
+	$this->url(array('action'=>'${1:action}','controller'=>'${2:'controller'}'),
+				'${3:default}',${4:true})
+snippet zfaction 
+	/**
+	 * ${2:Description}
+	 *
+	 * @return void
+	 * @author Rafael Nexus
+	 **/
+	public function ${1:name}Action()
+	{
+		${3://code}	
+	}
+snippet zfcontroller
+	/**
+	 * ${2:Description}
+	 *
+	 * @category ${3:category}
+	 * @package ${4:package}
+	 * @copyright Copyright (c) 2010 Rafael Nexus
+	 */
+
+	/**
+	 * $1 - $2
+	 *
+	 * @packaged $3
+	 * @author Rafael Nexus
+	 **/
+	class ${1:name}Controller extends Zend_Controller_Action
+	{
+		public function init()
+		{
+			${5://code} 
+		}
+	}
+snippet zfnt
+	<tu tuid="${1:label}">
+	<tuv xml:lang="en_US">
+	<seg>${2:translation}</seg>
+	</tuv>
+	</tu>
+	<tu tuid="$1">
+	<tuv xml:lang="pt_BR">
+	<seg>${3:translation}</seg>
+	</tuv>
+	</tu>       
