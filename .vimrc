@@ -59,9 +59,9 @@ filetype indent on
 " highlight the syntax
 syntax on
 "set color scheme
-colorscheme rdark
+colorscheme molokai
 " set the default gui font to Monaco
-set guifont=Inconsolata\ 12
+set guifont=Monaco\ 10
 " disable the toolbar
 set guioptions-=T
 " disable the menu
@@ -109,7 +109,7 @@ map <C-p> <Esc>:NERDTree /var/www/<cr>
 " Activate the Zencoding
 imap <C-z> <Esc><C-y>,a
 " Activate Nerd Commenter
-map <C-c> <Esc><leader>ci
+map <C-c> <leader>ci
 " Avoid accidental hits of <F1> while aiming for <Esc>
 map! <F1> <Esc>
 " Map taglist plugin shortcut
