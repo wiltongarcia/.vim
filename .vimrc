@@ -114,6 +114,8 @@ map <C-c> <leader>ci
 map! <F1> <Esc>
 " Map taglist plugin shortcut
 map <C-f> <Esc>:TlistToggle<cr>
+" Check php syntax
+map <F5> :!php -l %<cr>
 
 au! BufRead,BufNewFile *.json setfiletype json
 " Highlight long lines (soft limit: 80, hard limit: 100)
