@@ -74,6 +74,7 @@ filetype indent on
 syntax on
 "set color scheme
 colorscheme solarized
+set background=dark
 " set the default gui font to Monaco
 set guifont=Inconsolata\ 12
 " disable the toolbar

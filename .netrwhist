@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/var/www/rafaelnexus-tpl'
 let g:netrw_dirhist_2='/var/www/rafaelnexus/applications/dev.rafaelnexus.com.br/application/views/scripts/index'
 let g:netrw_dirhist_3='/Users/n3xu5/.vim'
+let g:netrw_dirhist_4='/Library/WebServer/Documents/Criarq/fenix'
