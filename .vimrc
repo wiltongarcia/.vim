@@ -73,9 +73,9 @@ filetype indent on
 " highlight the syntax
 syntax on
 "set color scheme
-colorscheme solarized
+colorscheme molokai
 " set the default gui font to Monaco
-set guifont=Inconsolata\ 12
+set guifont=Monaco
 " disable the toolbar
 set guioptions-=T
 " disable the menu
