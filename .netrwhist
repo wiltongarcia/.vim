@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Authentication'
-let g:netrw_dirhist_2='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Authentication/config'
-let g:netrw_dirhist_3='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Base'
-let g:netrw_dirhist_4='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Base/config'
-let g:netrw_dirhist_5='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Content'
-let g:netrw_dirhist_6='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Content/config'
-let g:netrw_dirhist_7='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Content'
-let g:netrw_dirhist_8='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Users'
-let g:netrw_dirhist_9='/Library/WebServer/Documents/__tools/ZendSkeletonApplication/module/Users/config'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/n3xu5/.vim/snippets'
