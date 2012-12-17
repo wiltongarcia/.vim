@@ -230,43 +230,56 @@ snippet dump
 	echo '<pre>' . nl2br(print_r(${1:value},true)) . '</pre>';
 snippet e
 	exit();${1}
+
 #
 # Zend Framework specific snippets
 #
 
 snippet zfdump
-	Zend_Debug::dump(${1})${2:;}
+	\Zend\Debug\Debug::dump(${1});$2
+
 snippet zfn
 	$${1:library} = new Zend_${2:library};
+
 snippet zfdate
 	$${1:dateVar} = new Zend_Date(${2:constructorValue})${3:;}
+
 snippet zfmsg
 	$this->_helper
 		 ->FlashMessenger
 		 ->addMessage(${1:message})${2:;}
+
 snippet zfnorender
 	$this->_helper->viewRenderer->setNoRender()${1:;}
-snippet zfgregistry
-	Zend_Registry::get('${1:value}')${2:;}
+
 snippet zfgrequest
 	$${1:request} = $this->getRequest()${2:;}
+
 snippet zfsession
 	$${1:session} = new Zend_Session_Namespace('${2:sessionName}')${3:;}
+
 snippet zfgparam
 	$${1:param} = $this->_getParam('${2:paramName}')${3}
+
 snippet zfnmodel
 	$${1:modelName} = new Application_Model_${2:model}${3:;}
+
 snippet zfredirector
 	$this->_helper->redirector('${1:action}','${2:model}')${3:;}
+
 snippet	zfrender
 	$this->render('${1:view}')${2:;}
+
 snippet zfcrender
 	$this->render('${1}',null,true)${2:;}
+
 snippet zfvt
 	$this->translate('${1}')${2}
+	
 snippet zfurl
 	$this->url(array('action'=>'${1:action}','controller'=>'${2:'controller'}'),
 				'${3:default}',${4:true})
+
 snippet zfaction 
 	/**
 	 * ${2:Description}
@@ -278,7 +291,15 @@ snippet zfaction
 	{
 		${3://code}	
 	}
+
 snippet zfcontroller
+	namespace \ $1
+    
+	/**
+	 * @uses Zend\Mvc\Controller\ActionController
+	 */
+	use Zend\Mvc\Controller\ActionController
+
 	/**
 	 * ${2:Description}
 	 *
@@ -293,9 +314,9 @@ snippet zfcontroller
 	 * @packaged $3
 	 * @author Rafael Nexus
 	 **/
-	class ${1:name}Controller extends Zend_Controller_Action
+	class ${1:name}Controller extends ActionControllerr
 	{
-		public function init()
+		public function __construct()
 		{
 			${5://code} 
 		}
@@ -311,3 +332,20 @@ snippet zfnt
 	<seg>${3:translation}</seg>
 	</tuv>
 	</tu>       
+
+snippet	zfinput
+	$this->add(array(
+			'name'=>'${1:name}',
+			'attributes' => array(
+				'id'        => '$1',
+				'maxlength' => ${2:100},
+				'tabindex'  => ${3},
+				'type'      => '${4:text}',
+				),
+			'options' => array(
+				'label' => '$1',
+				), 
+			));$5    
+
+snippet clog
+	ChromePhp::log(${1:message});${2}
