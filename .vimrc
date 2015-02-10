@@ -219,3 +219,26 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"Cscope
+if has("cscope")
+    set csprg=/usr/local/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+
+    "add any database in current directory
+    if filereadable("cscope.out")
+	cs add cscope.out
+    endif
+endif
+
+"Mapping
+nnoremap <F8> :cs reset <CR>
+nnoremap <C-\>s :cs find s <cword><CR>
+nnoremap <C-]> :cs find g <cword><CR>
+nnoremap <C-\>c :cs find c <cword><CR>
+nnoremap <C-F> :cs find t 
+nnoremap <C-\>e :cs find e <cword><CR>
+nnoremap <C-\>f :cs find f <cword><CR>
+nnoremap <C-\>i :cs find i <cword><CR>
+nnoremap <C-\>d :cs find d <cword><CR>
