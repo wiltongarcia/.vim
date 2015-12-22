@@ -134,6 +134,19 @@ map <C-f> <Esc>:TlistToggle<cr>
 "map <F5> :Php<cr>
 map <F5> :Phpcs<cr>
 
+map <C-E> :NERDTreeFind<CR>
+map <C-y> :tabnew<CR>
+map <C-tab> :tabprevious<CR>
+map <S-tab> :tabprevious<CR>
+map <tab> gt
+map ss <esc>:w<cr>
+map ssq <esc>:wq!<cr>
+map ssa <esc>:wall<cr>
+map ssaq <esc>:wallq!<cr>
+map ssp <esc>:w !make %<cr>
+map sspa <esc>:w <F5><cr>
+
+
 au! BufRead,BufNewFile *.json setfiletype json
 " Highlight long lines (soft limit: 80, hard limit: 100)
 au BufWinEnter *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
@@ -162,46 +175,50 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Plugin 'joonty/vim-phpqa'
+"Good Plugins
+"Vim plugin for intensely orgasmic commenting
+Plugin 'scrooloose/nerdcommenter' 
+
+"The NERD tree allows you to explore your filesystem and to open files and
+"directories. It presents the filesystem to you in the form of a tree which
+"you manipulate with the keyboard and/or mouse. It also allows you to perform
+"simple filesystem operations.
+Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'spf13/vim-autoclose'
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/matchit.zip'
+Plugin 'tyru/capture.vim'
+"Powerline is a statusline plugin for vim, and provides statuslines and prompts for several
+"other applications, including zsh, bash, tmux, IPython, Awesome and Qtile.
 Plugin 'powerline/powerline'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Shougo/neocomplcache'
-Plugin 'spf13/PIV'
-Plugin 'amirh/HTML-AutoCloseTag'
-Plugin 'mattn/emmet-vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'vim-scripts/AutoComplPop'
 
+
+"Test
+"Plugin 'Shougo/vimproc'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'm2mdas/phpcomplete-extended'
+"Plugin 'Shougo/neocomplete.vim'
+Plugin 'wincent/command-t'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'mileszs/ack.vim'
+
+"Removed
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'joonty/vim-phpunitqf.git'
+Plugin 'joonty/vim-phpqa'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'spf13/PIV'
+Plugin 'Shougo/neocomplcache'
 
 
 
@@ -243,3 +260,9 @@ nnoremap <C-\>e :cs find e <cword><CR>
 nnoremap <C-\>f :cs find f <cword><CR>
 nnoremap <C-\>i :cs find i <cword><CR>
 nnoremap <C-\>d :cs find d <cword><CR>
+map <tab> gt
+let g:ctrlp_match_window = 'results:100'
+
+
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+"let g:phpcomplete_index_composer_command="php composer.phar --quiet"
