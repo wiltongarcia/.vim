@@ -76,10 +76,14 @@ filetype indent on
 syntax on
 highlight Normal ctermfg=grey ctermbg=black
 "set color scheme
-colorscheme molokai
+"colorscheme molokai
+"set background=dark
+let g:solarized_termcolors=256
+set t_Co=256
 set background=dark
+colorscheme solarized
 " set the default gui font to Monaco
-set guifont=Inconsolata\ 12
+set guifont=Inconsolata\ 16
 " disable the toolbar
 set guioptions-=T
 " disable the menu
@@ -146,6 +150,8 @@ map ssaq <esc>:wallq!<cr>
 map ssp <esc>:w !make %<cr>
 map sspa <esc>:w <F5><cr>
 
+map <C-m> <esc>:set nonumber<cr><esc>:set mouse=""<cr>
+map <S-m> <esc>:set number<cr><esc>:set mouse=a<cr>
 
 au! BufRead,BufNewFile *.json setfiletype json
 " Highlight long lines (soft limit: 80, hard limit: 100)
