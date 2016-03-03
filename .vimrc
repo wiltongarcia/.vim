@@ -68,6 +68,7 @@ set virtualedit=all
 " no backup file :D
 set nobackup
 set noswapfile
+set pastetoggle=<F2>
 
 " Set the identation on
 filetype indent on
@@ -217,6 +218,8 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'wincent/command-t'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/syntastic'
+
 
 "Removed
 Plugin 'shawncplus/phpcomplete.vim'
@@ -272,3 +275,15 @@ let g:ctrlp_match_window = 'results:100'
 
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 "let g:phpcomplete_index_composer_command="php composer.phar --quiet"
+let NERDTreeIgnore = ['\.pyc$']
+
+                               
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
