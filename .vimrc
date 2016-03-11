@@ -68,7 +68,6 @@ set virtualedit=all
 " no backup file :D
 set nobackup
 set noswapfile
-set pastetoggle=<F2>
 
 " Set the identation on
 filetype indent on
@@ -111,13 +110,13 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 "autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Set multiple filetypes to the php files
-autocmd Filetype php set ft=php.html
+autocmd Filetype php set ft=php.html                                                                                                    
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 " set "make" command when editing php files
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
-
+                                                                                                                                        
 if has('mouse')
   set mouse=a
 endif
@@ -151,8 +150,8 @@ map ssaq <esc>:wallq!<cr>
 map ssp <esc>:w !make %<cr>
 map sspa <esc>:w <F5><cr>
 
-map <C-m> <esc>:set nonumber<cr><esc>:set mouse=""<cr>
-map <S-m> <esc>:set number<cr><esc>:set mouse=a<cr>
+map <F2> <esc>:set nonumber<cr><esc>:set mouse=""<cr>
+map <F3> <esc>:set number<cr><esc>:set mouse=a<cr>
 
 au! BufRead,BufNewFile *.json setfiletype json
 " Highlight long lines (soft limit: 80, hard limit: 100)
@@ -182,7 +181,7 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'L9'
 
 "Good Plugins
@@ -219,6 +218,7 @@ Plugin 'wincent/command-t'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'stephpy/vim-php-cs-fixer'
 
 
 "Removed
