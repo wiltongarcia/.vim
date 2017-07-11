@@ -219,6 +219,7 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'dracula/vim'
 
 
 "Removed
