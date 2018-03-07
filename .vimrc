@@ -222,13 +222,17 @@ Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'dracula/vim'
 
 
-"Removed
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'joonty/vim-phpunitqf.git'
 Plugin 'joonty/vim-phpqa'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'spf13/PIV'
 Plugin 'Shougo/neocomplcache'
+Plugin 'joonty/vdebug'
+Plugin 'editorconfig/editorconfig-vim'
+
+Plugin 'fatih/vim-go'
+
 
 
 
@@ -288,3 +292,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:go_fmt_command = "goimports"
