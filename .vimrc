@@ -150,6 +150,8 @@ map ssaq <esc>:wallq!<cr>
 map ssp <esc>:w !make %<cr>
 map sspa <esc>:w <F5><cr>
 
+map <C-,> <leader>He
+
 map <F2> <esc>:set nonumber<cr><esc>:set mouse=""<cr>
 map <F3> <esc>:set number<cr><esc>:set mouse=a<cr>
 
@@ -223,7 +225,7 @@ Plugin 'dracula/vim'
 
 
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'joonty/vim-phpunitqf.git'
+"Plugin 'joonty/vim-phpunitqf.git'
 Plugin 'joonty/vim-phpqa'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'spf13/PIV'
@@ -232,6 +234,9 @@ Plugin 'joonty/vdebug'
 Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'fatih/vim-go'
+Plugin 'hashivim/vim-terraform'
+Plugin 'jodosha/vim-godebug'
+Plugin 'firegoby/html_entities_helper.vim'
 
 
 
@@ -282,6 +287,8 @@ autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 "let g:phpcomplete_index_composer_command="php composer.phar --quiet"
 let NERDTreeIgnore = ['\.pyc$']
 
+let g:python2_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
                                
 "syntastic
 set statusline+=%#warningmsg#
@@ -294,3 +301,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:go_fmt_command = "goimports"
+
+nmap gc <Esc>:GoCallers<cr>
+nmap gr <Esc>:GoRename
+"nmap gt <Esc>:GoTest<cr>
+"vmap <C-c> :w !pbcopy<CR><CR>
+
+let g:terraform_align=1
+autocmd FileType terraform setlocal commentstring=#%s
